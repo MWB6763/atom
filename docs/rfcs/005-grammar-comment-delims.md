@@ -1,4 +1,4 @@
-# Add comment delims to grammar declaration
+# Add Comment Delims To Grammar Declaration
 
 ## Status
 
@@ -33,7 +33,7 @@ This is similar to the current Tree-sitter grammars, but they currently mix line
 
 Many community grammars would not get this property added to them. However, this feature can be considered a strict enhancement of the current status, and non compliant grammars can be accounted for. E.g., if a grammar still declares `start: '//'` but doesn't have an `end` property, then it can be reinterpreted as a line delim. Additionally, users would be quick to raise an issue here (:frowning_face:) or on the language repo (:slightly_smiling_face:) if they are trying to use a feature that relies on this and it doesn't work.
 
-## Rationale and alternatives
+## Rationale and Alternatives
 
 #### Why is this approach the best in the space of possible approaches?
 Tying all language specific data to the language file makes intuitive sense. This is stuff that will not change based on what the user wants (and already is tied directly to Tree-sitter language files).
@@ -49,7 +49,7 @@ However, I'm not set on requiring the TextMate grammars to have it in the file (
 #### What is the impact of not doing this?
   Getting the snippet variables working would require hard coding them for each language, which is impossible to do completely.
 
-## Unresolved questions
+## Unresolved Questions
 
 ####  What unresolved questions do you expect to resolve through the RFC process before this gets merged?
 #### What unresolved questions do you expect to resolve through the implementation of this feature before it is released in a new version of Atom?
