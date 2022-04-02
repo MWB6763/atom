@@ -1,4 +1,4 @@
-# Feature title
+# Feature Title
 
 ## Status
 
@@ -24,13 +24,13 @@ Explain the proposal as if it was already implemented and you were describing it
 
 Why should we *not* do this?
 
-## Rationale and alternatives
+## Rationale and Alternatives
 
 - Why is this approach the best in the space of possible approaches?
 - What other approaches have been considered and what is the rationale for not choosing them?
 - What is the impact of not doing this?
 
-## Unresolved questions
+## Unresolved Questions
 
 - What unresolved questions do you expect to resolve through the RFC process before this gets merged?
 - What unresolved questions do you expect to resolve through the implementation of this feature before it is released in a new version of Atom?
