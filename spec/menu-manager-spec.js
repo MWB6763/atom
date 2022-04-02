@@ -14,7 +14,7 @@ describe('MenuManager', function() {
   });
 
   describe('::add(items)', function() {
-    it('can add new menus that can be removed with the returned disposable', function() {
+    it('Can add new menus that can be removed with the returned disposable', function() {
       const disposable = menu.add([
         { label: 'A', submenu: [{ label: 'B', command: 'b' }] }
       ]);
@@ -29,7 +29,7 @@ describe('MenuManager', function() {
       expect(menu.template).toEqual([]);
     });
 
-    it('can add submenu items to existing menus that can be removed with the returned disposable', function() {
+    it('Can add submenu items to existing menus that can be removed with the returned disposable', function() {
       const disposable1 = menu.add([
         { label: 'A', submenu: [{ label: 'B', command: 'b' }] }
       ]);
@@ -111,7 +111,7 @@ describe('MenuManager', function() {
       Object.defineProperty(process, 'platform', { value: originalPlatform })
     );
 
-    it('sends the current menu template and associated key bindings to the browser process', function() {
+    it('Sends the current menu template and associated key bindings to the browser process', function() {
       menu.add([{ label: 'A', submenu: [{ label: 'B', command: 'b' }] }]);
       atom.keymaps.add('test', { 'atom-workspace': { 'ctrl-b': 'b' } });
       menu.update();
@@ -121,7 +121,7 @@ describe('MenuManager', function() {
       ]);
     });
 
-    it('omits key bindings that are mapped to unset! in any context', function() {
+    it('Omits key bindings that are mapped to unset! in any context', function() {
       // it would be nice to be smarter about omitting, but that would require a much
       // more dynamic interaction between the currently focused element and the menu
       menu.add([{ label: 'A', submenu: [{ label: 'B', command: 'b' }] }]);
@@ -131,7 +131,7 @@ describe('MenuManager', function() {
       expect(menu.sendToBrowserProcess.argsForCall[0][1]['b']).toBeUndefined();
     });
 
-    it('omits key bindings that could conflict with AltGraph characters on macOS', function() {
+    it('Omits key bindings that could conflict with AltGraph characters on macOS', function() {
       Object.defineProperty(process, 'platform', { value: 'darwin' });
       menu.add([
         {
@@ -160,7 +160,7 @@ describe('MenuManager', function() {
       ]);
     });
 
-    it('omits key bindings that could conflict with AltGraph characters on Windows', function() {
+    it('Omits key bindings that could conflict with AltGraph characters on Windows', function() {
       Object.defineProperty(process, 'platform', { value: 'win32' });
       menu.add([
         {
@@ -190,7 +190,7 @@ describe('MenuManager', function() {
     });
   });
 
-  it('updates the application menu when a keymap is reloaded', function() {
+  it('Updates the application menu when a keymap is reloaded', function() {
     spyOn(menu, 'update');
     const keymapPath = path.join(
       __dirname,
