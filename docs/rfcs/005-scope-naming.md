@@ -1,4 +1,4 @@
-# Semantic scope naming
+# Semantic Scope Naming
 
 ## Status
 
@@ -42,7 +42,7 @@ This is tricky, of course — not only the coordination of PRs across packages, 
 
 The drawback is that what I’m suggesting is a lot of work. I don’t propose it lightly; I propose it because it strikes me as the least bad of all available choices.
 
-## Rationale and alternatives
+## Rationale and Alternatives
 
 And what are those other choices?
 
@@ -52,8 +52,8 @@ And what are those other choices?
 
 3. Some sort of grand compromise that I don’t have the breadth of experience to envision on my own. I’m hoping for this one, actually. For instance, it occurs to me that the “variables shouldn’t ever be highlighted with different colors across different usages” problem is only a problem in languages where there’s no sigil to mark variables. PHP, Perl, and Less don’t have this problem because all variables begin with a symbol. Maybe the solution is to include some token like `without-sigil` in the scope name, and then the built-in themes can write a rule like `.syntax--without-sigil { color: @mono-1 !important }`.
 
-## Unresolved questions
+## Unresolved Questions
 
-- Ideally, I’d love to have some sort of canonical scope document like [TextMate](https://macromates.com/manual/en/language_grammars#naming_conventions) and [Sublime Text](https://www.sublimetext.com/docs/3/scope_naming.html) have. But the future of TM-style scope naming seems to be up in the air. I think that they’re no less relevant in the era of tree-sitter grammars, but I bet others disagree.
+- Ideally, I’d love to have some sort of canonical scope document like [TextMate](https://macromates.com/manual/en/language_grammars#naming_conventions) and [Sublime Text](https://sublimetext.com/docs/3/scope_naming.html) have. But the future of TM-style scope naming seems to be up in the air. I think that they’re no less relevant in the era of tree-sitter grammars, but I bet others disagree.
 - To what extent should tree-sitter grammars be expected to scope documents identically to their TM-style predecessors? Obviously not 100%, or else there’d be no gains. What’s the right balancing test?
 - Atom has made some infrastructural choices that can complicate how scopes get applied and consumed. Are these permanent? For instance, if I wanted to implement Alternative 2 (as described above), I could choose a scope name like `meta.variable.import`, on the assumption that `meta.`-prefixed scope names won’t have syntax highlighting. But `meta.variable` gets caught by a `.syntax--variable` CSS selector just as much as it would if the scope name began with `variable`. The order and hierarchy implied in the scope name is not actually present. Syntax themes could write selectors more creatively to get around this — e.g., `*[class^="syntax--variable "]` instead of `.syntax--variable` — but I don’t think many do, and I can hardly blame them. Is this a limitation that Atom can evolve its way out of without breaking anything? Or are we stuck with it?
